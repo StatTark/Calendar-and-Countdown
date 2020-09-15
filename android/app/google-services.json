@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "988298167735",
+    "firebase_url": "https://takvim-ve-geri-sayim.firebaseio.com",
+    "project_id": "takvim-ve-geri-sayim",
+    "storage_bucket": "takvim-ve-geri-sayim.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:988298167735:android:6f429d95e43ef2743c1432",
+        "android_client_info": {
+          "package_name": "com.arstech.ajanda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "988298167735-1q3fi0jglf4kpuhi4l7tskp77pcie82v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcoFsZmR0h1DKhnwr8qCmWfT2rfJOJsf0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "988298167735-1q3fi0jglf4kpuhi4l7tskp77pcie82v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
