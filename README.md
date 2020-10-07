@@ -15,3 +15,6 @@ Guide:
   - You can add events from the + button at the bottom right.
   - You can delete, edit and review the event in more detail from the details section.
   - You can open a permanent notification and create a countdown from the Options section while uploading or editing an event.
+  
+  https://play.google.com/store/apps/details?id=com.arstech.ajanda
+  
