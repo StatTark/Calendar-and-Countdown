@@ -14,7 +14,7 @@ class Notifications {
       'your channel id',
       "CHANNEL-NAME",
       "CHANNEL-DESC",
-      largeIcon: DrawableResourceAndroidBitmap('screen'),
+      largeIcon: DrawableResourceAndroidBitmap('large_icon'),
       importance: Importance.Low,
       priority: Priority.High,
       autoCancel: false,
@@ -35,7 +35,7 @@ class Notifications {
       'your channel id',
       "CHANNEL-NAME",
       "CHANNEL-DESC",
-      largeIcon: DrawableResourceAndroidBitmap('screen'),
+      largeIcon: DrawableResourceAndroidBitmap('large_icon'),
       importance: Importance.Max,
       priority: Priority.Max,
       autoCancel: false,
@@ -46,7 +46,7 @@ class Notifications {
     var iosChannel = IOSNotificationDetails();
     var platformChannel = NotificationDetails(androidChannel, iosChannel);
     await localNotificationsPlugin.schedule(
-      id+5000,
+      id + 5000,
       message,
       subtext,
       datetime,
@@ -60,18 +60,20 @@ class Notifications {
       'your channel id',
       "CHANNEL-NAME",
       "CHANNEL-DESC",
-      largeIcon: DrawableResourceAndroidBitmap('screen'),
+      largeIcon: DrawableResourceAndroidBitmap('large_icon'),
       importance: Importance.Max,
       priority: Priority.Max,
       autoCancel: false,
       ongoing: false,
       onlyAlertOnce: true,
+      enableVibration: true,
+      sound: RawResourceAndroidNotificationSound("slow_spring_board_longer_tail"),
     );
     var iosChannel = IOSNotificationDetails();
     var platformChannel = NotificationDetails(androidChannel, iosChannel);
     print("[NOTIFICATIONS] [onSelectNotification] creating notification ");
     await localNotificationsPlugin.schedule(
-      id+5000,
+      id + 5000,
       message,
       subtext,
       datetime,

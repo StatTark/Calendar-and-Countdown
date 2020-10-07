@@ -4,7 +4,7 @@ import '../databasehelper/dataBaseHelper.dart';
 // Arka planda calisacak task
 void callbackDispatcher() {
   Workmanager.executeTask((task, inputData) async{
-    var db = DbHelper();
+    var db = DbHelper.instance;
     await db.openNotificationBar();
     return Future.value(true);
   });

@@ -11,7 +11,7 @@ class CountDownPage extends StatefulWidget {
 }
 
 class _CountDownPageState extends State<CountDownPage> {
-  var _db = DbHelper();
+  var _db = DbHelper.instance;
 
   var now = DateTime.now();
 

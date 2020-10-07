@@ -5,7 +5,6 @@ import '../databasemodels/settingsModel.dart';
 import '../helpers/constants.dart';
 import '../helpers/languageDictionary.dart';
 import '../databasehelper/dataBaseHelper.dart';
-import '../databasehelper/settingsHelper.dart';
 import '../widgets/showDialog.dart';
 import 'mainmenu.dart';
 
@@ -57,8 +56,7 @@ class _SettingsState extends State<Settings> {
     ),
   ];
 
-  var _db = DbHelper();
-  var _sdb = SettingsDbHelper();
+  var _db = DbHelper.instance;
 
   @override
   void initState() {
@@ -98,7 +96,7 @@ class _SettingsState extends State<Settings> {
                     });
                     var temp = Setting();
                     temp.language = _languageDropdownList.indexOf(_dropdownLanguageValue);
-                    await _sdb.updateLanguage(temp);
+                    await _db.updateLanguage(temp);
                     Navigator.pop(context);
                     Navigator.pop(context);
                     Navigator.push(
@@ -143,10 +141,10 @@ class _SettingsState extends State<Settings> {
                     /// theme'i update etme
                     var sett = Setting();
                     sett.theme = _switchValue ? 'dark' : 'light';
-                    await _sdb.updateTheme(sett);
+                    await _db.updateTheme(sett);
                     DynamicTheme.of(context)
                         .setBrightness(_switchValue ? Brightness.dark : Brightness.light);
-                    await _sdb.getSettings().then((settings) {
+                    await _db.getSettings().then((settings) {
                       DynamicTheme.of(context).setThemeData(ThemeData(
                         brightness: _switchValue ? Brightness.dark : Brightness.light,
                         fontFamily: settings[0].fontName,
@@ -240,8 +238,8 @@ class _SettingsState extends State<Settings> {
                       setState(() => _dropDownValue = newValue);
                       var temp = Setting();
                       temp.fontName = _dropDownValue;
-                      await _sdb.updateFont(temp);
-                      await _sdb.getSettings().then((settings) {
+                      await _db.updateFont(temp);
+                      await _db.getSettings().then((settings) {
                         DynamicTheme.of(context).setThemeData(ThemeData(
                           brightness:
                           settings[0].theme == "dark" ? Brightness.dark : Brightness.light,

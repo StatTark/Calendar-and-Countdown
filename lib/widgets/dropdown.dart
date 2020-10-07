@@ -19,7 +19,7 @@ class DropDown extends StatefulWidget {
 }
 
 class _DropDownState extends State<DropDown> {
-  var _db = DbHelper();
+  var _db = DbHelper.instance;
   String dropdownValue = proTranslate['Detaylar'][Language.languageIndex];
 
   @override

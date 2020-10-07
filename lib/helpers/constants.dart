@@ -24,6 +24,7 @@ class SettingsConstants{
   static const String COLUMN_THEME = "theme" ;
   static const String COLUMN_WARNING = "warning";
   static const String COLUMN_LANGUAGE = "language";
+  static const String COLUMN_FIRST = "firstStart";
 }
 class Language{
   static int languageIndex = 0;

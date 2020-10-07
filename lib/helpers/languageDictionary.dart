@@ -153,10 +153,12 @@ Map<String, dynamic> proTranslate = {
   "Etkinliğinize 1 hafta kaldı.": ["Etkinliğinize 1 hafta kaldı.", "1 week left to your event."],
 
   ///helperFunctions.dart
+  "Şimdi" :["Şimdi","Now"],
   "Bugün": ["Bugün", "Today"],
   "Gün Geçti": ["Gün Geçti", "Days passed"],
   "Dakika Kaldı":["Dakika Kaldı","Minutes Left"],
   "Saat Kaldı": ["Saat Kaldı", "Hours Left"],
+  "Etkinlik Başladı":["Etkinlik Başladı","Event started"],
   //17
 
   "Gün Kaldı": ["Gün Kaldı", "Days Left"],
@@ -336,9 +338,9 @@ Map<String, dynamic> proTranslate = {
   ],
   //112
   "Ayarladığınız maili zamanı geldiğinde E-mail servisine yönlendirir.":
-      [
+  [
     "Ayarladığınız maili zamanı geldiğinde E-mail servisine yönlendirir.",
-    "When the time comes, it directs the e-mail you set to the E-mail service."
+    "It sends the e-mail you set to the e-mail service when the time comes."
   ],
   //132
   //tamam var 147 fuck that shit

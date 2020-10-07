@@ -1,12 +1,13 @@
+import 'package:ajanda/databasehelper/dataBaseHelper.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-import '../databasehelper/settingsHelper.dart';
+
 import '../helpers/constants.dart';
 import '../helpers/languageDictionary.dart';
 
 void navigateToSettingsDialog(context) async {
-  var sdb = SettingsDbHelper();
+  var _db = DbHelper.instance;
   bool val = false;
   showDialog(
       context: context,
@@ -46,14 +47,14 @@ void navigateToSettingsDialog(context) async {
                     FlatButton(
                       child: Text(proTranslate["Tamam"][Language.languageIndex]),
                       onPressed: () async {
-                        await sdb.updateWarning(val ? 1 : 0).then((value) => Navigator.pop(context));
+                        await _db.updateWarning(val ? 1 : 0).then((value) => Navigator.pop(context));
                       },
                     ),
                     FlatButton(
                       child: Text(proTranslate["Ayarlara Git"][Language.languageIndex]),
                       onPressed: () async {
                         openAppSettings();
-                        await sdb.updateWarning(val ? 1 : 0).then((value) => Navigator.pop(context));
+                        await _db.updateWarning(val ? 1 : 0).then((value) => Navigator.pop(context));
                       },
                     )
                   ],

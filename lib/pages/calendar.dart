@@ -12,7 +12,7 @@ import '../helpers/constants.dart';
 import '../helpers/languageDictionary.dart';
 
 class FutureCalendar extends StatelessWidget {
-  final DbHelper _helper = DbHelper();
+  final DbHelper _helper = DbHelper.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -134,7 +134,7 @@ class _CalendarState extends State<Calendar> {
         this.setState(() => _currentDate2 = date);
         setState(() {
           var newdate = date.toString().split(" ")[0];
-          final _helper = DbHelper();
+          final _helper = DbHelper.instance;
           Future<bool> sorgu = _helper.isEventInDb('$newdate');
           sorgu.then((onValue) {
             if (onValue == true) {
@@ -260,7 +260,7 @@ class _CalendarState extends State<Calendar> {
   }
 
   void refreshPage() {
-    var _helper = DbHelper();
+    var _helper =DbHelper.instance;
     var sorgu = _helper.getEventList();
     sorgu.then((onValue) {
       setState(() {

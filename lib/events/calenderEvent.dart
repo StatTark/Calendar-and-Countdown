@@ -18,7 +18,7 @@ class CalanderEvent extends StatefulWidget {
 }
 
 class _CalanderEventstate extends State<CalanderEvent> {
-  var _db = DbHelper();
+  var _db = DbHelper.instance;
 
   @override
   void dispose() {
@@ -154,7 +154,7 @@ class _CalanderEventstate extends State<CalanderEvent> {
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(8.0),
                                         color: (calcRemaining(snapshot.data[index].date,
-                                            snapshot.data[index].startTime)
+                                            snapshot.data[index].startTime,snapshot.data[index].finishTime,)
                                             .contains(proTranslate["Geçti"][Language.languageIndex]))
                                             ? Colors.blueGrey
                                             : Colors.blue,
@@ -163,7 +163,7 @@ class _CalanderEventstate extends State<CalanderEvent> {
                                         alignment: Alignment.center,
                                         child: Text(
                                           calcRemaining(snapshot.data[index].date,
-                                              snapshot.data[index].startTime),
+                                              snapshot.data[index].startTime,snapshot.data[index].finishTime,),
                                           textAlign: TextAlign.center,
                                           style: TextStyle(fontSize: 22),
                                         ),

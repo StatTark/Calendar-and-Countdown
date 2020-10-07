@@ -28,7 +28,7 @@ class _AddEventState extends State<EventEdit> {
 
   final Advert _advert = Advert();
 
-  var _db = DbHelper();
+  var _db = DbHelper.instance;
 
   String _selectedDate;
   String _selectedStartHour;

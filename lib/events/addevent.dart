@@ -1,4 +1,3 @@
-import 'package:ajanda/databasehelper/settingsHelper.dart';
 import 'package:ajanda/helpers/constants.dart';
 import 'package:device_info/device_info.dart';
 
@@ -32,7 +31,7 @@ class _AddEventState extends State<AddEvent> {
 
   final Advert _advert = Advert();
 
-  var _db = DbHelper();
+  var _db = DbHelper.instance;
 
   String _selectedDate = DateTime.now().toString().split(" ")[0];
   String _selectedStartHour = DateTime.now().toString().split(" ")[1].split(":")[0] +
@@ -663,8 +662,7 @@ class _AddEventState extends State<AddEvent> {
   }
 
   void asyncCall() async {
-    var sdb = SettingsDbHelper();
-    await sdb.getSettings().then((value) async{
+    await _db.getSettings().then((value) async{
       if(value[0].warning!= 1){
         AndroidDeviceInfo androidInfo = await deviceInfoPlugin.androidInfo;
         if (androidInfo.brand == "xiaomi" ||

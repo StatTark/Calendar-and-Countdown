@@ -8,17 +8,17 @@ import '../databasemodels/events.dart';
 import '../helpers/helperFunctions.dart';
 import '../widgets/dropdown.dart';
 
-class Soclose extends StatefulWidget {
+class SoClose extends StatefulWidget {
   int index = 0;
 
-  Soclose({this.index});
+  SoClose({this.index});
 
   @override
-  _Closesevents createState() => _Closesevents();
+  _ClosesEvents createState() => _ClosesEvents();
 }
 
-class _Closesevents extends State<Soclose> {
-  var _db = DbHelper();
+class _ClosesEvents extends State<SoClose> {
+  var _db = DbHelper.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,12 @@ class _Closesevents extends State<Soclose> {
           builder: (context, snapshot) {
             if (snapshot.data == null) {
               return Container(
-                child: Center(child: Text(proTranslate["Yükleniyor....."][Language.languageIndex])),
+                child: Center(
+                  child: CircularProgressIndicator(
+                    valueColor:
+                        AlwaysStoppedAnimation<Color>(Colors.lightBlueAccent),
+                  ),
+                ),
               );
             } else {
               return ListView.builder(
@@ -47,7 +52,8 @@ class _Closesevents extends State<Soclose> {
                               Expanded(
                                 child: Container(
                                   child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
                                     children: <Widget>[
                                       Text(
                                         '${snapshot.data[index].title}',
@@ -68,7 +74,8 @@ class _Closesevents extends State<Soclose> {
                                                 SizedBox(
                                                   width: 10,
                                                 ),
-                                                Text("${snapshot.data[index].date}"),
+                                                Text(
+                                                    "${snapshot.data[index].date}"),
                                               ],
                                             ),
                                             Row(
@@ -104,7 +111,8 @@ class _Closesevents extends State<Soclose> {
                               ),
                               Expanded(
                                 child: Container(
-                                  padding: const EdgeInsets.only(left: 16.0, top: 12.0),
+                                  padding: const EdgeInsets.only(
+                                      left: 16.0, top: 12.0),
                                   child: Column(
                                     children: <Widget>[
                                       Container(
@@ -112,20 +120,28 @@ class _Closesevents extends State<Soclose> {
                                           id: snapshot.data[index].id,
                                           title: snapshot.data[index].title,
                                           date: snapshot.data[index].date,
-                                          startTime: snapshot.data[index].startTime,
-                                          finishTime: snapshot.data[index].finishTime,
+                                          startTime:
+                                              snapshot.data[index].startTime,
+                                          finishTime:
+                                              snapshot.data[index].finishTime,
                                           desc: snapshot.data[index].desc,
-                                          isActive: snapshot.data[index].isActive,
+                                          isActive:
+                                              snapshot.data[index].isActive,
                                           choice: snapshot.data[index].choice,
-                                          countDownIsActive: snapshot.data[index].countDownIsActive,
-                                          attachments: snapshot.data[index].attachments,
+                                          countDownIsActive: snapshot
+                                              .data[index].countDownIsActive,
+                                          attachments:
+                                              snapshot.data[index].attachments,
                                           cc: snapshot.data[index].cc,
                                           bb: snapshot.data[index].bb,
-                                          recipient: snapshot.data[index].recipient,
+                                          recipient:
+                                              snapshot.data[index].recipient,
                                           subject: snapshot.data[index].subject,
                                           body: snapshot.data[index].body,
-                                          periodic: snapshot.data[index].periodic,
-                                          frequency: snapshot.data[index].frequency,
+                                          periodic:
+                                              snapshot.data[index].periodic,
+                                          frequency:
+                                              snapshot.data[index].frequency,
                                         )),
                                       ),
                                       Container(
@@ -133,18 +149,25 @@ class _Closesevents extends State<Soclose> {
                                         width: 105,
                                         padding: EdgeInsets.only(bottom: 8.0),
                                         decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(8.0),
-                                          color: (calcRemaining(snapshot.data[index].date,
-                                              snapshot.data[index].startTime)
-                                              .contains(proTranslate["Geçti"][Language.languageIndex]))
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          color: (calcRemaining(
+                                            snapshot.data[index].date,
+                                            snapshot.data[index].startTime,
+                                            snapshot.data[index].finishTime,
+                                          ).contains(proTranslate["Geçti"]
+                                                  [Language.languageIndex]))
                                               ? Colors.blueGrey
                                               : Colors.blue,
                                         ),
                                         child: Align(
                                           alignment: Alignment.center,
                                           child: Text(
-                                            calcRemaining(snapshot.data[index].date,
-                                                snapshot.data[index].startTime),
+                                            calcRemaining(
+                                                snapshot.data[index].date,
+                                                snapshot.data[index].startTime,
+                                                snapshot
+                                                    .data[index].finishTime),
                                             textAlign: TextAlign.center,
                                             style: TextStyle(fontSize: 22),
                                           ),
