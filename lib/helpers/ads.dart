@@ -13,10 +13,10 @@ class Advert {
   MobileAdTargetingInfo _targetingInfo = MobileAdTargetingInfo();
 
   // Banned reklam id
-  final String _bannerId = "ca-app-pub-7253836882495109/2763559909";
+  final String _bannerId = "ca-app-pub-xxxx";
 
   // Intersitial reklam id
-  final String _interId = "ca-app-pub-7253836882495109/4991758688";
+  final String _interId = "ca-app-pub-xxx";
 
   Advert._internal() {
     _targetingInfo = MobileAdTargetingInfo(
